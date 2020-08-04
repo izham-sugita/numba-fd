@@ -22,6 +22,7 @@ program heat2D
 
   allocate(T(imax,jmax), Tn(imax,jmax), x(imax,jmax), y(imax,jmax))
 
+  !$omp parallel do private(i,j)
   do j = 1, jmax
      do i = 1, imax
         x(i,j) = (i-1)*dx
@@ -30,6 +31,7 @@ program heat2D
         Tn(i,j) = T(i,j)
      end do
   end do
+  !$omp end parallel do
   
 
   
