@@ -12,41 +12,47 @@ def go_fast(a):
     for i in range(a.shape[0]):
         trace +=np.tanh(a[i,i])
         
-    return a+trace
+    return trace # a+trace?
 
 
 #first warm up
 start = time.time()
-go_fast(x)
+a = go_fast(x)
 end = time.time()
+print(a)
 print("Elapsed time with compilation: %s" %(end-start))
 
 #after compilation
 start = time.time()
-go_fast(x)
+a = go_fast(x)
 end = time.time()
+print(a)
 print("Elapsed time after compilation: %s" %(end-start))
 
 #test compiled module
 start = time.time()
-foo.go_fast_mod(x)
+a = foo.go_fast_mod(x)
 end = time.time()
+print(a)
 print("Elapsed time for first run module compilation: %s" %(end-start))
 
 #test compiled module
 start = time.time()
-foo.go_fast_mod(x)
+a = foo.go_fast_mod(x)
 end = time.time()
+print(a)
 print("Elapsed time for second run module compilation: %s" %(end-start))
 
 #test compiled module with numba
 start = time.time()
-foo.go_fast_numba(x)
+a = foo.go_fast_numba(x)
 end = time.time()
+print(a)
 print("Elapsed time for first run numba in module compilation: %s" %(end-start))
 
 #test compiled module with numba
 start = time.time()
-foo.go_fast_numba(x)
+a = foo.go_fast_numba(x)
 end = time.time()
+print(a)
 print("Elapsed time for second run numba in module compilation: %s" %(end-start))
