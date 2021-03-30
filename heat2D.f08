@@ -29,12 +29,14 @@ program heat2D
   icenter = (imax/2) + 1
   jcenter = (jmax/2) + 1
   
-  print*, "Enter dt, dx=", dx, " as reference."
+  print*, "Enter dt ratio wrt  dx*dx =", dx*dx, " as reference."
   read*, dt
   print*, "Maximum iteration?"
   read*, itermax
   print*, "Steps for record"
   read*, istep
+
+dt = dt*dx*dx
 
   allocate(T(imax,jmax), Tn(imax,jmax), x(imax,jmax), y(imax,jmax))
   allocate(rhs(imax,jmax), Told(imax,jmax) )
