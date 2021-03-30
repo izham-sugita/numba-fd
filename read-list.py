@@ -9,3 +9,10 @@ nlist = ast.literal_eval(a)
 print(nlist)
 print(type(nlist))
 print(nlist[0][0] )
+
+f.close()
+
+with open("list.txt") as fileobject:
+    for line in fileobject:
+        print(line)
+
